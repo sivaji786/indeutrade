@@ -33,4 +33,9 @@ $routes->group('api', function($routes) {
     $routes->get('analytics/corridor-performance', 'Analytics::corridorPerformance');
     $routes->get('analytics/sector-distribution', 'Analytics::sectorDistribution');
     $routes->get('analytics/trade-flows', 'Analytics::tradeFlows');
+
+    // Enterprise Maturity
+    $routes->get('alerts', 'AlertController::index');
+    $routes->put('alerts/(:num)/read', 'AlertController::markRead/$1');
+    $routes->get('audit/logs', 'AuditLogController::index');
 });

@@ -1,23 +1,29 @@
-import { LayoutDashboard, BarChart3, Globe2, ShieldCheck, Settings, LogOut, Users, Database, Layers } from 'lucide-react'
+import { LayoutDashboard, BarChart3, Globe2, ShieldCheck, Settings, LogOut, Users, Database, Layers, Languages, Bell, Shield, Calculator } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Sidebar = ({ activeTab, setActiveTab, onLogout, user }) => {
+  const { t, i18n } = useTranslation()
   const isAdmin = user?.role === 'admin'
   
   const subscriberMenu = [
-    { name: 'Dashboard', icon: <LayoutDashboard size={20} /> },
-    { name: 'Trade Analytics', icon: <BarChart3 size={20} /> },
-    { name: 'FTA Insights', icon: <Globe2 size={20} /> },
-    { name: 'Regulations', icon: <ShieldCheck size={20} /> },
-    { name: 'Settings', icon: <Settings size={20} /> },
+    { name: 'Dashboard', icon: <LayoutDashboard size={20} />, key: 'dashboard' },
+    { name: 'Trade Analytics', icon: <BarChart3 size={20} />, key: 'analytics' },
+    { name: 'FTA Insights', icon: <Globe2 size={20} />, key: 'fta' },
+    { name: 'Regulations', icon: <ShieldCheck size={20} />, key: 'regulations' },
+    { name: 'Alerts', icon: <Bell size={20} />, key: 'alerts' },
+    { name: 'Trade Sandbox', icon: <Calculator size={20} />, key: 'sandbox' },
+    { name: 'Settings', icon: <Settings size={20} />, key: 'settings' },
   ]
 
   const adminMenu = [
-    { name: 'Admin Portal', icon: <ShieldCheck size={20} /> },
-    { name: 'User Management', icon: <Users size={20} /> },
-    { name: 'Module Intelligence', icon: <Layers size={20} /> },
-    { name: 'Data Sync', icon: <Database size={20} /> },
-    { name: 'Trade Analytics', icon: <BarChart3 size={20} /> },
-    { name: 'Settings', icon: <Settings size={20} /> },
+    { name: 'Admin Portal', icon: <ShieldCheck size={20} />, key: 'admin' },
+    { name: 'User Management', icon: <Users size={20} />, key: 'users' },
+    { name: 'Module Intelligence', icon: <Layers size={20} />, key: 'modules' },
+    { name: 'Data Sync', icon: <Database size={20} />, key: 'sync' },
+    { name: 'System Audit', icon: <Shield size={20} />, key: 'audit' },
+    { name: 'Trade Analytics', icon: <BarChart3 size={20} />, key: 'analytics' },
+    { name: 'Trade Sandbox', icon: <Calculator size={20} />, key: 'sandbox' },
+    { name: 'Settings', icon: <Settings size={20} />, key: 'settings' },
   ]
 
   const menuItems = isAdmin ? adminMenu : subscriberMenu
@@ -48,12 +54,30 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, user }) => {
             <span className={`${activeTab === item.name ? 'text-blue-400' : 'text-slate-500 group-hover:text-slate-300'}`}>
               {item.icon}
             </span>
-            {item.name}
+            {t(`sidebar.${item.key}`)}
           </button>
         ))}
       </nav>
 
       <div className="p-6 border-t border-slate-800 bg-slate-900/20">
+        <div className="flex items-center justify-between mb-6 px-2">
+            <div className="flex items-center gap-2">
+               <Languages size={14} className="text-slate-500" />
+               <button 
+                  onClick={() => i18n.changeLanguage('en')}
+                  className={`text-[10px] font-black tracking-widest uppercase ${i18n.language === 'en' ? 'text-blue-400' : 'text-slate-500'}`}
+               >
+                  EN
+               </button>
+               <span className="text-slate-700">|</span>
+               <button 
+                  onClick={() => i18n.changeLanguage('de')}
+                  className={`text-[10px] font-black tracking-widest uppercase ${i18n.language === 'de' ? 'text-blue-400' : 'text-slate-500'}`}
+               >
+                  DE
+               </button>
+            </div>
+        </div>
         <div className="flex items-center gap-3 mb-6 px-2">
            <div className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-black text-slate-300">
               {user?.email?.[0].toUpperCase()}
@@ -67,7 +91,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, user }) => {
           onClick={onLogout}
           className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-black uppercase tracking-widest text-red-400 hover:bg-red-500/10 transition-all duration-200 group border border-transparent hover:border-red-500/20"
         >
-          Logout
+          {t('sidebar.logout')}
           <LogOut size={16} className="group-hover:translate-x-1 duration-200" />
         </button>
       </div>

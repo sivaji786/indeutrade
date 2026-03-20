@@ -12,9 +12,14 @@ import RegulationsView from './components/RegulationsView'
 import SettingsView from './components/SettingsView'
 import ModuleManagementView from './components/ModuleManagementView'
 import AnalyticsView from './components/AnalyticsView'
-import { LayoutDashboard, BarChart3, Globe2, ShieldCheck, Settings, Users, Database, LogOut, Activity, Layers } from 'lucide-react'
+import AlertsView from './components/AlertsView'
+import AuditLogView from './components/AuditLogView'
+import TradeSandboxView from './components/TradeSandboxView'
+import { useTranslation } from 'react-i18next'
+import { LayoutDashboard, BarChart3, Globe2, ShieldCheck, Settings, Users, Database, LogOut, Activity, Layers, Bell, Shield, Calculator } from 'lucide-react'
 
 function App() {
+  const { t } = useTranslation()
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem('user')
     return saved ? JSON.parse(saved) : null
@@ -109,6 +114,8 @@ function App() {
       if (activeTab === 'Module Intelligence') return <ModuleManagementView />
       if (activeTab === 'Data Sync') return <DataSyncView />
       if (activeTab === 'Trade Analytics') return <AnalyticsView />
+      if (activeTab === 'System Audit') return <AuditLogView />
+      if (activeTab === 'Trade Sandbox') return <TradeSandboxView />
       if (activeTab === 'Settings') return <SettingsView user={user} />
       
       const adminIconMap = {
@@ -159,6 +166,8 @@ function App() {
     if (activeTab === 'Trade Analytics') return <AnalyticsView />
     if (activeTab === 'FTA Insights') return <FTAInsightsView />
     if (activeTab === 'Regulations') return <RegulationsView />
+    if (activeTab === 'Alerts') return <AlertsView user={user} />
+    if (activeTab === 'Trade Sandbox') return <TradeSandboxView />
     if (activeTab === 'Settings') return <SettingsView user={user} />
 
     const subIconMap = {

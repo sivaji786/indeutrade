@@ -1,0 +1,32 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "analytics": "Trade Analytics",
+    "fta": "FTA Insights",
+    "regulations": "Regulations",
+    "alerts": "Proactive Alerts",
+    "sandbox": "Trade Sandbox",
+    "settings": "Settings",
+    "admin": "Admin Portal",
+    "users": "User Management",
+    "modules": "Module Intelligence",
+    "sync": "Data Sync",
+    "audit": "System Audit",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "title": "Global Trade Analytics",
+    "subtitle": "2026 Indo-Pacific Corridor Monitoring",
+    "search": "Search product name, HS code, or country...",
+    "results": "Showing results",
+    "loading": "Synthesizing intelligence...",
+    "all": "All Intelligence"
+  },
+  "common": {
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "loading": "Loading..."
+  }
+}

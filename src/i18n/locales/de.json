@@ -1,0 +1,32 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "analytics": "Handelsanalyse",
+    "fta": "FTA-Einblicke",
+    "regulations": "Vorschriften",
+    "alerts": "Proaktive Warnungen",
+    "sandbox": "Handels-Sandbox",
+    "settings": "Einstellungen",
+    "admin": "Admin-Portal",
+    "users": "Benutzerverwaltung",
+    "modules": "Modul-Intelligenz",
+    "sync": "Daten-Synchronisation",
+    "audit": "Systemprüfung",
+    "logout": "Abmelden"
+  },
+  "dashboard": {
+    "title": "Globale Handelsanalyse",
+    "subtitle": "2026 Indo-Pazifik Korridor Überwachung",
+    "search": "Produkthemen, HS-Code oder Land suchen...",
+    "results": "Ergebnisse anzeigen",
+    "loading": "Intelligenz wird synthetisiert...",
+    "all": "Alle Informationen"
+  },
+  "common": {
+    "back": "Zurück",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "loading": "Laden..."
+  }
+}

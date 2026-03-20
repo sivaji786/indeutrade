@@ -2,14 +2,22 @@ import StatCard from './StatCard'
 import TariffTable from './TariffTable'
 import { Globe2, BarChart3, LayoutDashboard } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 const DashboardView = ({ 
     loading, error, tariffs, searchTerm, setSearchTerm, 
     loadMore, hasMore, selectedCategory, setSelectedCategory,
     onViewProduct, categories = []
 }) => {
+  const { t } = useTranslation()
 
   return (
     <div className="grid grid-cols-1 gap-10">
+      <div className="flex flex-col gap-2">
+        <h1 className="text-3xl font-black text-white tracking-tight leading-none">{t('dashboard.title')}</h1>
+        <p className="text-sm font-medium text-slate-500 uppercase tracking-[0.2em]">{t('dashboard.subtitle')}</p>
+      </div>
+
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatCard 
           title="Active FTAs" 
@@ -43,7 +51,7 @@ const DashboardView = ({
           onClick={() => setSelectedCategory(null)}
           className={`px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${!selectedCategory ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800'}`}
         >
-          All Intelligence
+          {t('dashboard.all')}
         </button>
         {categories.map(cat => (
           <button 
