@@ -12,7 +12,7 @@ $routes->group('api', function($routes) {
     $routes->post('login', 'AuthController::login');
     $routes->options('login', function() {});
     $routes->get('tariffs/categories', 'Tariff::categories');
-    $routes->get('tariffs/ai/(:num)', 'Tariff::aiIntelligence/$1');
+    $routes->get('tariff/(:num)/ai-intelligence', 'Tariff::aiIntelligence/$1');
     $routes->resource('tariffs', ['controller' => 'Tariff']);
     $routes->resource('users', ['controller' => 'UserController']);
     $routes->resource('sync', ['controller' => 'SyncController']);

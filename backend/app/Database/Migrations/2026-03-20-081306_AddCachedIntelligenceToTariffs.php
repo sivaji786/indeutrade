@@ -9,6 +9,11 @@ class AddCachedIntelligenceToTariffs extends Migration
     public function up()
     {
         $fields = [
+            'compliance_deadline' => [
+                'type' => 'DATE',
+                'null' => true,
+                'after' => 'tax_info'
+            ],
             'cached_ai_intelligence' => [
                 'type' => 'LONGTEXT',
                 'null' => true,

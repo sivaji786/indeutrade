@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { 
   ArrowLeft, Download, ShieldCheck, Globe2, TrendingUp, FileText, 
-  Info, AlertTriangle, Zap, Sparkles, Globe, History, Clock, Factory, MapPin 
+  Info, AlertTriangle, Zap, Sparkles, Globe, History, Clock, Factory, MapPin, RefreshCw
 } from 'lucide-react'
 import CostSavingsCalculator from './CostSavingsCalculator'
 
