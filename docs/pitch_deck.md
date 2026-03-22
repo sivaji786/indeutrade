@@ -75,6 +75,8 @@ Welcome to the **Indeutrade Investor Pitch Deck**. This document provides a slid
 *   [Market Intelligence](market_intelligence.md)
 *   [Technical Moat](technical_moat.md)
 *   [Financial Impact](financial_impact.md)
+*   [Loan Utilization Plan](loan_utilization_plan.md)
+*   [Risk Management Ledger](risk_management_ledger.md)
 
 ---
 **Project Status**: 100% Core + Enterprise Phases Complete & Stabilized.

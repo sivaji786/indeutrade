@@ -12,6 +12,7 @@
     "modules": "Module Intelligence",
     "sync": "Data Sync",
     "audit": "System Audit",
+    "wiki": "Wiki Module",
     "logout": "Logout"
   },
   "dashboard": {
@@ -27,6 +28,7 @@
     "save": "Save",
     "cancel": "Cancel",
     "confirm": "Confirm",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "export_pdf": "Export as PDF"
   }
 }

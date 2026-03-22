@@ -1,4 +1,4 @@
-import { LayoutDashboard, BarChart3, Globe2, ShieldCheck, Settings, LogOut, Users, Database, Layers, Languages, Bell, Shield, Calculator } from 'lucide-react'
+import { LayoutDashboard, BarChart3, Globe2, ShieldCheck, Settings, LogOut, Users, Database, Layers, Languages, Bell, Shield, Calculator, BookOpen } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 const Sidebar = ({ activeTab, setActiveTab, onLogout, user }) => {
@@ -20,6 +20,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, user }) => {
     { name: 'User Management', icon: <Users size={20} />, key: 'users' },
     { name: 'Module Intelligence', icon: <Layers size={20} />, key: 'modules' },
     { name: 'Data Sync', icon: <Database size={20} />, key: 'sync' },
+    { name: 'Wiki Module', icon: <BookOpen size={20} />, key: 'wiki' },
     { name: 'System Audit', icon: <Shield size={20} />, key: 'audit' },
     { name: 'Trade Analytics', icon: <BarChart3 size={20} />, key: 'analytics' },
     { name: 'Trade Sandbox', icon: <Calculator size={20} />, key: 'sandbox' },

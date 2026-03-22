@@ -12,6 +12,7 @@
     "modules": "Modul-Intelligenz",
     "sync": "Daten-Synchronisation",
     "audit": "Systemprüfung",
+    "wiki": "Wiki-Modul",
     "logout": "Abmelden"
   },
   "dashboard": {
@@ -27,6 +28,7 @@
     "save": "Speichern",
     "cancel": "Abbrechen",
     "confirm": "Bestätigen",
-    "loading": "Laden..."
+    "loading": "Laden...",
+    "export_pdf": "Als PDF exportieren"
   }
 }

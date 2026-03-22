@@ -38,4 +38,10 @@ $routes->group('api', function($routes) {
     $routes->get('alerts', 'AlertController::index');
     $routes->put('alerts/(:num)/read', 'AlertController::markRead/$1');
     $routes->get('audit/logs', 'AuditLogController::index');
+
+    // Wiki Module (Admin)
+    $routes->group('admin/wiki', function($routes) {
+        $routes->get('/', 'Admin\Wiki::index');
+        $routes->get('(:segment)', 'Admin\Wiki::show/$1');
+    });
 });

@@ -15,6 +15,7 @@ import AnalyticsView from './components/AnalyticsView'
 import AlertsView from './components/AlertsView'
 import AuditLogView from './components/AuditLogView'
 import TradeSandboxView from './components/TradeSandboxView'
+import WikiView from './components/WikiView'
 import { useTranslation } from 'react-i18next'
 import { LayoutDashboard, BarChart3, Globe2, ShieldCheck, Settings, Users, Database, LogOut, Activity, Layers, Bell, Shield, Calculator } from 'lucide-react'
 
@@ -115,6 +116,7 @@ function App() {
       if (activeTab === 'Data Sync') return <DataSyncView />
       if (activeTab === 'Trade Analytics') return <AnalyticsView />
       if (activeTab === 'System Audit') return <AuditLogView />
+      if (activeTab === 'Wiki Module') return <WikiView />
       if (activeTab === 'Trade Sandbox') return <TradeSandboxView />
       if (activeTab === 'Settings') return <SettingsView user={user} />
       
