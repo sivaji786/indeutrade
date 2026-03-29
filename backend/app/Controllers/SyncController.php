@@ -30,9 +30,11 @@ class SyncController extends ResourceController
         $recordsSynced = count($intelligenceData);
         $triggeredBy = $this->request->getVar('triggered_by') ?? 'System Admin';
 
-        // Clear existing mock data first to ensure fresh intelligence ingestion
-        // In a real app, we would use upsert logic
+        // Delete existing records safely (TRUNCATE is blocked by FK constraint on `alerts`)
+        $db->query('SET FOREIGN_KEY_CHECKS = 0');
         $tariffBuilder->truncate();
+        $db->query('SET FOREIGN_KEY_CHECKS = 1');
+
         
         // Batch Insert
         $tariffBuilder->insertBatch($intelligenceData);

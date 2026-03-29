@@ -14,8 +14,8 @@ const DashboardView = ({
   return (
     <div className="grid grid-cols-1 gap-10">
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-black text-white tracking-tight leading-none">{t('dashboard.title')}</h1>
-        <p className="text-sm font-medium text-slate-500 uppercase tracking-[0.2em]">{t('dashboard.subtitle')}</p>
+        <h1 className="text-3xl font-black tracking-tight leading-none" style={{ color: 'var(--text-heading)' }}>{t('dashboard.title')}</h1>
+        <p className="text-sm font-medium uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>{t('dashboard.subtitle')}</p>
       </div>
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -49,7 +49,8 @@ const DashboardView = ({
       <div className="flex flex-wrap gap-4 overflow-x-auto pb-2 scrollbar-none">
         <button 
           onClick={() => setSelectedCategory(null)}
-          className={`px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${!selectedCategory ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800'}`}
+          className={`px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${!selectedCategory ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'border'}`}
+          style={!selectedCategory ? {} : { backgroundColor: 'var(--bg-item-hover)', color: 'var(--text-secondary)', borderColor: 'var(--border-main)' }}
         >
           {t('dashboard.all')}
         </button>
@@ -57,7 +58,8 @@ const DashboardView = ({
           <button 
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${selectedCategory === cat ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800'}`}
+            className={`px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${selectedCategory === cat ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'border'}`}
+            style={selectedCategory === cat ? {} : { backgroundColor: 'var(--bg-item-hover)', color: 'var(--text-secondary)', borderColor: 'var(--border-main)' }}
           >
             {cat}
           </button>

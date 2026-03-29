@@ -1,11 +1,11 @@
 const PlaceholderView = ({ activeTab, icon: Icon, onBack }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-      <div className="w-24 h-24 bg-blue-600/10 rounded-full flex items-center justify-center text-blue-400 mb-6 animate-pulse">
+      <div className="w-24 h-24 bg-blue-600/10 rounded-full flex items-center justify-center text-blue-500 mb-6 animate-pulse">
         <Icon size={48} />
       </div>
-      <h2 className="text-3xl font-bold text-slate-100">{activeTab}</h2>
-      <p className="text-slate-400 mt-2 max-w-md">
+      <h2 className="text-3xl font-bold" style={{ color: 'var(--text-heading)' }}>{activeTab}</h2>
+      <p className="mt-2 max-w-md" style={{ color: 'var(--text-secondary)' }}>
         The {activeTab} module is currently being synchronized with live 2026 FTA data. Check back shortly for real-time insights.
       </p>
       <button 

@@ -56,13 +56,14 @@ function App() {
     
     setLoading(true)
     const offset = isNewSearch ? 0 : page * 20
-    const url = new URL(`${import.meta.env.VITE_API_URL}/tariffs`)
-    url.searchParams.append('limit', 20)
-    url.searchParams.append('offset', offset)
-    url.searchParams.append('sort', sortBy)
-    url.searchParams.append('order', sortOrder)
-    if (searchTerm) url.searchParams.append('search', searchTerm)
-    if (selectedCategory) url.searchParams.append('category', selectedCategory)
+    const params = new URLSearchParams()
+    params.append('limit', 20)
+    params.append('offset', offset)
+    params.append('sort', sortBy)
+    params.append('order', sortOrder)
+    if (searchTerm) params.append('search', searchTerm)
+    if (selectedCategory) params.append('category', selectedCategory)
+    const url = `${import.meta.env.VITE_API_URL}/tariffs?${params.toString()}`
 
     try {
       const res = await fetch(url)
@@ -187,7 +188,7 @@ function App() {
   }
 
   return (
-    <div className="flex min-h-screen bg-[#020617] text-slate-100 font-sans">
+    <div className="flex min-h-screen font-sans" style={{ backgroundColor: 'var(--bg-app)', color: 'var(--text-primary)' }}>
       <Sidebar 
         activeTab={activeTab} 
         setActiveTab={(tab) => {
@@ -198,23 +199,23 @@ function App() {
         user={user}
       />
 
-      <main className="flex-1 ml-72 p-10 overflow-y-auto print:ml-0 print:p-0">
+      <main className="flex-1 ml-72 p-10 overflow-y-auto print:ml-0 print:p-0" style={{ backgroundColor: 'var(--bg-app)', color: 'var(--text-primary)' }}>
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6 print:hidden">
           <div className="text-left">
-            <h1 className="text-3xl font-extrabold tracking-tight text-white">
+            <h1 className="text-3xl font-extrabold tracking-tight" style={{ color: 'var(--text-heading)' }}>
               {user.role === 'admin' ? 'System ' : 'Good Evening, '} 
-              <span className="text-blue-400">{user.role === 'admin' ? 'Admin' : 'Architect'}</span>
+              <span style={{ color: 'var(--text-active)' }}>{user.role === 'admin' ? 'Admin' : 'Architect'}</span>
             </h1>
-            <p className="text-slate-400 mt-1">
+            <p className="mt-1" style={{ color: 'var(--text-secondary)' }}>
               {user.role === 'admin' 
                 ? "Manage datasets and monitor real-time sync status." 
                 : "Explore what's happening in global 2026 FTA markets."}
             </p>
           </div>
           <div className="flex gap-4">
-             <div className="bg-slate-800/30 border border-slate-800 p-4 rounded-2xl flex items-center gap-4">
+             <div className="p-4 rounded-2xl flex items-center gap-4 border" style={{ backgroundColor: 'var(--bg-header-badge)', borderColor: 'var(--border-main)' }}>
                 <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Secure Live Node</span>
+                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>Secure Live Node</span>
              </div>
           </div>
         </header>
@@ -223,17 +224,17 @@ function App() {
       </main>
 
       {showLogoutConfirm && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-950/80 backdrop-blur-md">
-          <div className="bg-[#0b1120] border border-slate-800 rounded-[2.5rem] p-10 max-w-sm w-full text-center shadow-2xl animate-in fade-in zoom-in duration-300">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 backdrop-blur-md" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+          <div className="rounded-[2.5rem] p-10 max-w-sm w-full text-center shadow-2xl animate-in fade-in zoom-in duration-300 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-main)' }}>
             <div className="w-20 h-20 rounded-3xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mx-auto mb-6">
               <LogOut className="text-red-400" size={32} />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">End Session?</h3>
-            <p className="text-slate-400 text-sm mb-8">You are about to terminate the current secure connection to the Indeutrade intelligence network.</p>
+            <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-heading)' }}>End Session?</h3>
+            <p className="text-sm mb-8" style={{ color: 'var(--text-secondary)' }}>You are about to terminate the current secure connection to the Indeutrade intelligence network.</p>
             <div className="grid grid-cols-2 gap-4">
               <button 
                 onClick={() => setShowLogoutConfirm(false)}
-                className="bg-slate-800 hover:bg-slate-700 text-white rounded-2xl py-4 font-black transition-all"
+                className="rounded-2xl py-4 font-black transition-all border" style={{ backgroundColor: 'var(--bg-item-hover)', color: 'var(--text-primary)', borderColor: 'var(--border-main)' }}
               >
                 STAY
               </button>

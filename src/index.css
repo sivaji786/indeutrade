@@ -1,30 +1,116 @@
 @import "tailwindcss";
 
-:root {
+/* ========== LIGHT (WHITE) THEME — DEFAULT ========== */
+:root,
+[data-theme="light"] {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #020617;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light;
+
+  /* Backgrounds */
+  --bg-app: #f1f5f9;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-2: #f8fafc;
+  --bg-input: #f1f5f9;
+  --bg-item-hover: #f1f5f9;
+  --bg-item-active: #eff6ff;
+  --bg-header-badge: #f1f5f9;
+  --bg-logout-modal: #ffffff;
+
+  /* Borders */
+  --border-main: #e2e8f0;
+  --border-active: #bfdbfe;
+  --border-card: #e2e8f0;
+  --border-input: #cbd5e1;
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --text-heading: #0f172a;
+  --text-active: #2563eb;
+  --text-item: #475569;
+  --text-item-hover: #1e293b;
+  --text-label: #64748b;
+  --text-user: #0f172a;
+  --text-role: #64748b;
+
+  /* Accents */
+  --accent-primary: #2563eb;
+  --accent-glow: rgba(37,99,235,0.15);
+  --shadow-blue: rgba(37, 99, 235, 0.08);
+
+  /* Sidebar gradient bar */
+  --sidebar-bar-opacity: 0.7;
+
+  /* Separator */
+  --separator: #e2e8f0;
+}
+
+/* ========== DARK THEME ========== */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --bg-app: #020617;
+  --bg-sidebar: #0b1120;
+  --bg-card: #0b1120;
+  --bg-card-2: #0f172a;
+  --bg-input: #020617;
+  --bg-item-hover: rgba(51,65,85,0.5);
+  --bg-item-active: rgba(37,99,235,0.1);
+  --bg-header-badge: rgba(30,41,59,0.3);
+  --bg-logout-modal: #0b1120;
+
+  /* Borders */
+  --border-main: #1e293b;
+  --border-active: rgba(59, 130, 246, 0.2);
+  --border-card: #1e293b;
+  --border-input: #1e293b;
+
+  /* Text */
+  --text-primary: rgba(255,255,255,0.87);
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-heading: #ffffff;
+  --text-active: #60a5fa;
+  --text-item: #94a3b8;
+  --text-item-hover: #e2e8f0;
+  --text-label: #64748b;
+  --text-user: #ffffff;
+  --text-role: #64748b;
+
+  /* Accents */
+  --accent-primary: #3b82f6;
+  --accent-glow: rgba(59,130,246,0.1);
+  --shadow-blue: rgba(59, 130, 246, 0.05);
+
+  /* Sidebar gradient bar */
+  --sidebar-bar-opacity: 0.5;
+
+  /* Separator */
+  --separator: #1e293b;
 }
 
 body {
   margin: 0;
-  background-color: #020617;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 #root {
   width: 100%;
 }
 
+/* ========== PRINT ========== */
 @media print {
   @page {
     size: A4;
